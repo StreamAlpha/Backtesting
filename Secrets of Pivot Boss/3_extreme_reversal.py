@@ -1,12 +1,13 @@
 #%%
-from historical_data import get
+from tvDatafeed import TvDatafeed, Interval
 import pandas as pd
 import numpy as np
 import datetime
 import matplotlib.pyplot as plt
 import mplfinance as mpf
 
-ohlc_data = get("TCS", "eq")
+tv = TvDatafeed()
+ohlc_data = tv.get_hist(symbol="TCS", exchange="NSE")
 resampling_dict = {
     "open": "first",
     "high": "max",
